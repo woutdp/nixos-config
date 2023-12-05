@@ -3,7 +3,6 @@
 {
   imports = [
     ./git
-    ./gnupg
     ./gtk
     ./hyprland
     ./neovim
@@ -23,7 +22,7 @@
   };
 
   home.file."code/.keep".text = "";
-      
+
   programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs
