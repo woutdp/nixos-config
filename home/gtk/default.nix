@@ -1,25 +1,40 @@
 {pkgs, ...}:
 
+let
+  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
+in
 {
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
+  };
+
   gtk = {
     enable = true;
+    font.name = "Cascadia";
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
     theme = {
-      name = "Juno";
-      package = pkgs.juno-theme;
+      package = pkgs.gruvbox-gtk-theme;
+      name = "Gruvbox-Dark-B";
     };
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = gruvboxPlus;
+      name = "GruvboxPlus";
     };
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
-        '';
+      '';
     };
     gtk4.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
-        '';
+      '';
     };
   };
 }

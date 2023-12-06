@@ -30,11 +30,11 @@
   in {
     nixosConfigurations = {
 
-      nixos = nixpkgs.lib.nixosSystem {
+      framework = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs vars;};
         modules = [
-          ./hosts/nixos
+          ./hosts/framework
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

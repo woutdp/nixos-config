@@ -7,6 +7,7 @@
     ./hyprland
     ./neovim
     ./shell
+    ./waybar
   ];
 
   nixpkgs = {
@@ -19,7 +20,44 @@
   home = {
     username = "${vars.user}";
     homeDirectory = "/home/${vars.user}";
+    packages = with pkgs;
+    [
+      beeper
+      brightnessctl
+      eww
+      fd
+      google-chrome
+      gotop
+      lazygit
+      ncdu
+      neofetch
+      pavucontrol
+      ripgrep
+      spotify
+      swaylock-effects
+      telegram-desktop
+      unzip
+      vlc
+      wl-clipboard
+      wofi
+      zellij
+
+      # fonts
+      cascadia-code
+      dejavu_fonts
+      fira-code
+      jetbrains-mono
+      material-design-icons
+      material-icons
+      material-symbols
+      nerdfonts
+      powerline-fonts
+      sarasa-gothic
+      siji
+    ];
   };
+
+  fonts.fontconfig.enable = true;
 
   home.file."code/.keep".text = "";
 

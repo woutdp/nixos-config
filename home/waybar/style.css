@@ -1,0 +1,263 @@
+@keyframes blink-low {
+	70% {
+		color: @foreground;
+	}
+
+	to {
+		color: @foreground;
+		background-color: #744E0D;
+	}
+}
+
+@keyframes blink-warning {
+	70% {
+		color: @foreground;
+	}
+
+	to {
+		color: @foreground;
+		background-color: @warning;
+	}
+}
+
+@keyframes blink-critical {
+	70% {
+		color: @foreground;
+	}
+
+	to {
+		color: @foreground;
+		background-color: @critical;
+	}
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* Nord */
+/* Gruvbox */
+@define-color foreground #D4BE98;
+@define-color background #202020;
+@define-color backgroundlight #2A2A2A;
+@define-color mode #a89984;
+@define-color workspaces #458588;
+@define-color workspacesfocused #83a598;
+@define-color sound #E78A4E;
+@define-color network #A9B665;
+@define-color memory #7DAEA3;
+@define-color cpu #8EC07C;
+@define-color layout #689d6a;
+@define-color battery #A9B665;
+@define-color date #282828;
+@define-color time #ebdbb2;
+@define-color warning #DE655E;
+@define-color critical #FB4934;
+@define-color temp #A9B665;
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+	background: @background;
+	color: @foreground;
+	font-family: Sarasa Term K, JetBrainsMono Nerd Font, Material Design Icons, unifont, Fira Code, Terminus, Siji;
+	font-size: 12pt;
+  font-weight: bold;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#memory,
+#custom-clockify,
+#custom-spotify,
+#backlight,
+#mode,
+#network,
+#disk,
+#pulseaudio,
+#workspaces,
+#temperature {
+	padding: 0 10px;
+  margin: 5px 5px;
+  border-radius: 10em;
+  background-color: @backgroundlight;
+  color: @foreground;
+}
+
+/* Each module that should blink */
+#mode,
+#memory,
+#temperature,
+#battery {
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical {
+	color: @critical;
+}
+
+/* Each critical that should blink */
+#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-name: blink-critical;
+	animation-duration: 2s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning {
+	color: @warning;
+}
+
+#cpu.low {
+	color: @memory;
+}
+
+/* Each warning that should blink */
+#battery.warning.discharging {
+	animation-name: blink-warning;
+	animation-duration: 3s;
+}
+
+#battery.low.discharging {
+	animation-name: blink-low;
+	animation-duration: 5s;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+	color: @foreground;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces {
+  background: #2A2A2A;
+}
+
+#workspaces button {
+  padding: 0;
+	color: #D4BE98;
+  font-size: 16pt;
+}
+
+#workspaces button.persistent {
+  color: #3E3E3E;
+}
+
+#workspaces button.visible {
+	color: #FE8019;
+}
+
+#network {
+	color: @network;
+}
+
+#disk {
+	color: #FABD2F;
+  border-radius: 10em 0 0 10em;
+  margin-right: 0;
+}
+
+#memory {
+	color: @memory;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 0;
+}
+
+#cpu {
+	color: @cpu;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 0;
+}
+
+#temperature {
+	color: @temp;
+  border-radius: 0 10em 10em 0;
+  margin-left: 0;
+}
+
+#pulseaudio {
+	color: @sound;
+  margin-right: 0;
+  border-radius: 10em 0 0 10em;
+}
+
+#pulseaudio.muted {
+	color: #3E3E3E;
+}
+
+#battery {
+	color: @battery;
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 0;
+}
+
+#backlight {
+  color: #D3869B;
+  margin-left: 0;
+  border-radius: 0 10em 10em 0;
+}
+
+#clock.date {
+	background: @date;
+	color: @foreground;
+  margin-right: 0;
+  border-radius: 10em 0 0 10em;
+}
+
+#clock.time {
+	background: @time;
+	color: @background;
+  margin-left: 0;
+  border-radius: 0 10em 10em 0;
+}
+
+#custom-spotify {
+  color: @backgroundlight;
+  background-color: #1DB954;
+}
+
+#tray {
+  margin: 0 5px;
+}
+
+tooltip {
+  color: @foreground;
+  background-color: @background;
+  font-weight: 400;
+  font-family: hack;
+  margin: 0 10px;
+  border-radius: 1em;
+}
+
+tooltip label {
+  color: @foreground;
+  padding: 0 5px;
+}

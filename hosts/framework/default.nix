@@ -54,10 +54,19 @@
 
     # https://git.exozy.me/a/zenpower3
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "btusb.enable_autosuspend=0"
+    ];
+    blacklistedKernelModules = [
+      "hid_logitech_hidpp"
+    ];
   };
 
   networking = {
-    hostName = "nixos";
+    hostName = "framework";
     networkmanager.enable = true;
   };
 
@@ -145,25 +154,14 @@
 
   environment = {
     systemPackages = with pkgs; [
-      beeper
-      brightnessctl
-      eww
       gcc
+      git
       gnupg
-      google-chrome
-      gotop
-      lazygit
-      neofetch
-      pavucontrol
-      ripgrep
-      spotify
-      swaylock
-      swaylock-effects
-      telegram-desktop
-      waybar
+      hyprpaper
+      killall
+      neovim
+      python3
       wget
-      wofi
-      zellij
     ];
 
     # This will additionally add your inputs to the system's legacy channels
@@ -214,11 +212,6 @@
       powerOnBoot = true;
     };
   };
-  
-  fonts.packages = with pkgs; [
-    fira-code
-    nerdfonts
-  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
