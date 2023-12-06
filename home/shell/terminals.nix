@@ -17,29 +17,29 @@
       foreground = "#EBDBB2";
       background = "#33332F";
       # black
-      color0     = "#282828";
-      color8     = "#828374";
+      color0 = "#282828";
+      color8 = "#828374";
       # red
-      color1     = "#CC241D";
-      color9     = "#FB4934";
+      color1 = "#CC241D";
+      color9 = "#FB4934";
       # green
-      color2     = "#B8BB26";
-      color10    = "#98971A";
+      color2 = "#B8BB26";
+      color10 = "#98971A";
       # yellow
-      color3     = "#FABD2F";
-      color11    = "#D79921";
+      color3 = "#FABD2F";
+      color11 = "#D79921";
       # blue
-      color4     = "#83A598";
-      color12    = "#458588";
+      color4 = "#83A598";
+      color12 = "#458588";
       # magenta
-      color5     = "#D3869B";
-      color13    = "#B16286";
+      color5 = "#D3869B";
+      color13 = "#B16286";
       # cyan
-      color6     = "#8EC07C";
-      color14    = "#689D6A";
+      color6 = "#8EC07C";
+      color14 = "#689D6A";
       # white
-      color7     = "#EBDBB2";
-      color15    = "#A89984";
+      color7 = "#EBDBB2";
+      color15 = "#A89984";
     };
     keybindings = {
       "kitty_mod+RIGHT_BRACKET" = "change_font_size all +0.1";

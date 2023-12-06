@@ -1,9 +1,5 @@
 {
-  imports = [
-    ./nushell
-    ./starship.nix
-    ./terminals.nix
-  ];
+  imports = [ ./nushell ./starship.nix ./terminals.nix ];
 
   home.sessionVariables = {
     BROWSER = "google-chrome-stable";

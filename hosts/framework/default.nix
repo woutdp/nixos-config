@@ -1,14 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  vars,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, vars, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
@@ -16,13 +8,11 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs vars; };
-    users = {
-      ${vars.user} = import ../../home;
-    };
+    users = { ${vars.user} = import ../../home; };
   };
 
   nix = {
-    nixPath = ["/etc/nix/path"];
+    nixPath = [ "/etc/nix/path" ];
     settings = {
       auto-optimise-store = true;
       experimental-features = "nix-command flakes";
@@ -35,14 +25,11 @@
 
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  nixpkgs = { config = { allowUnfree = true; }; };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -55,14 +42,8 @@
     # https://git.exozy.me/a/zenpower3
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
 
-    kernelParams = [
-      "quiet"
-      "splash"
-      "btusb.enable_autosuspend=0"
-    ];
-    blacklistedKernelModules = [
-      "hid_logitech_hidpp"
-    ];
+    kernelParams = [ "quiet" "splash" "btusb.enable_autosuspend=0" ];
+    blacklistedKernelModules = [ "hid_logitech_hidpp" ];
   };
 
   networking = {
@@ -145,7 +126,7 @@
     isNormalUser = true;
     description = "${vars.name}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.${vars.shell};
     openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -166,13 +147,10 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    etc =
-      lib.mapAttrs'
-      (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      })
-      config.nix.registry;
+    etc = lib.mapAttrs' (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    }) config.nix.registry;
   };
 
   services.pcscd.enable = true;
@@ -188,17 +166,14 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
     };
-  
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-    };                                           
+    };
   };
 
   # OpenCL / Vulkan

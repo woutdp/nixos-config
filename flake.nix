@@ -15,33 +15,33 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs @ { self, nixpkgs, hyprland, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs, hyprland, home-manager, ... }:
     let
-    inherit (self) outputs;
-  vars = {
-    user = "wout";
-    name = "Wout De Puysseleir";
-    email = "woutdp@gmail.com";
-    location = "$HOME/.nix";
-    terminal = "kitty";
-    editor = "nvim";
-    shell = "nushell";
-  };
-  in {
-    nixosConfigurations = {
-
-      framework = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs outputs vars;};
-        modules = [
-          ./hosts/framework
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-        ];
+      inherit (self) outputs;
+      vars = {
+        user = "wout";
+        name = "Wout De Puysseleir";
+        email = "woutdp@gmail.com";
+        location = "$HOME/.nix";
+        terminal = "kitty";
+        editor = "nvim";
+        shell = "nushell";
       };
+    in {
+      nixosConfigurations = {
 
+        framework = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs vars; };
+          modules = [
+            ./hosts/framework
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+          ];
+        };
+
+      };
     };
-  };
 }

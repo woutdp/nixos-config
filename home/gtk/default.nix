@@ -1,9 +1,7 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
-let
-  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
-in
-{
+let gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
+in {
   qt = {
     enable = true;
     platformTheme = "gtk";

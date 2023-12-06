@@ -1,14 +1,7 @@
-{ inputs, lib, config, vars, pkgs, ... }: 
+{ inputs, lib, config, vars, pkgs, ... }:
 
 {
-  imports = [
-    ./git
-    ./gtk
-    ./hyprland
-    ./neovim
-    ./shell
-    ./waybar
-  ];
+  imports = [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ];
 
   nixpkgs = {
     config = {
@@ -20,8 +13,7 @@
   home = {
     username = "${vars.user}";
     homeDirectory = "/home/${vars.user}";
-    packages = with pkgs;
-    [
+    packages = with pkgs; [
       beeper
       brightnessctl
       eww
@@ -31,6 +23,7 @@
       lazygit
       ncdu
       neofetch
+      nixfmt
       pavucontrol
       ripgrep
       spotify
