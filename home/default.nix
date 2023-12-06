@@ -27,6 +27,7 @@
       pavucontrol
       ripgrep
       spotify
+      stylua
       swaylock-effects
       telegram-desktop
       unzip

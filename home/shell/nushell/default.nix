@@ -9,7 +9,7 @@
       rebuild = "sudo nixos-rebuild switch --flake /home/wout/.nix ";
       c = "clear";
       gg = "lazygit";
-      dev = "nix develop";
+      dev = "nix develop -c nu";
     };
   };
 }
