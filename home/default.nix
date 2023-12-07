@@ -1,7 +1,7 @@
 { inputs, lib, config, vars, pkgs, ... }:
 
 {
-  imports = [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ];
+  imports = [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ./zellij ];
 
   nixpkgs = {
     config = {
@@ -34,7 +34,6 @@
       vlc
       wl-clipboard
       wofi
-      zellij
 
       # fonts
       cascadia-code
