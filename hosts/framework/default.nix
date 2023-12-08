@@ -42,7 +42,13 @@
     # https://git.exozy.me/a/zenpower3
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
 
-    kernelParams = [ "quiet" "splash" "btusb.enable_autosuspend=0" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "btusb.enable_autosuspend=0"
+      "nvme.noacpi=1"
+      "amd_pstate=active"
+    ];
     blacklistedKernelModules = [ "hid_logitech_hidpp" ];
   };
 
@@ -109,15 +115,23 @@
       '';
     };
 
-    auto-cpufreq.enable = true;
     fwupd.enable = true;
     blueman.enable = true;
     upower.enable = true;
+    upower.criticalPowerAction = "Hibernate";
     fprintd.enable = true;
     # from nixos-hardware/common/pc/ssd
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
+    logind.lidSwitch = "suspend";
+    logind.extraConfig = ''
+      # don’t shutdown when power button is short-pressed
+      HandlePowerKey=suspend
+    '';
+    pcscd.enable = true;
+    thermald.enable = true;
+    auto-cpufreq.enable = true;
   };
 
   security = {
@@ -165,13 +179,6 @@
     }) config.nix.registry;
   };
 
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-    enableSSHSupport = true;
-  };
-
   programs = {
     hyprland.enable = true;
     nm-applet.enable = true;
@@ -185,6 +192,12 @@
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+    };
+
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "gnome3";
+      enableSSHSupport = true;
     };
   };
 
