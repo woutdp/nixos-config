@@ -1,7 +1,8 @@
 { inputs, lib, config, vars, pkgs, ... }:
 
 {
-  imports = [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ./zellij ];
+  imports =
+    [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ./zellij ./swappy ];
 
   nixpkgs = {
     config = {
@@ -20,14 +21,17 @@
       fd
       google-chrome
       gotop
+      grim
       lazygit
       ncdu
       neofetch
       nixfmt
       pavucontrol
       ripgrep
+      slurp
       spotify
       stylua
+      swappy
       swaylock-effects
       telegram-desktop
       unzip
