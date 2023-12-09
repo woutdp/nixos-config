@@ -15,7 +15,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nixpkgs, hyprland, home-manager, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, nixpkgs-unstable, hyprland, home-manager, ... }:
     let
       inherit (self) outputs;
       vars = {
@@ -32,7 +33,7 @@
 
         framework = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs vars; };
+          specialArgs = { inherit inputs outputs vars nixpkgs-unstable; };
           modules = [
             ./hosts/framework
             {

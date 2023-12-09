@@ -1,6 +1,6 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, vars, ... }: {
+{ inputs, outputs, lib, config, pkgs, vars, ... }:
+
+{
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
@@ -46,6 +46,7 @@
       "quiet"
       "splash"
       "btusb.enable_autosuspend=0"
+      "usbcore.autosuspend=-1"
       "nvme.noacpi=1"
       "amd_pstate=active"
     ];
@@ -83,6 +84,16 @@
       displayManager.defaultSession = "Hyprland";
       autoRepeatDelay = 250;
       autoRepeatInterval = 30;
+      exportConfiguration = true;
+      #libinput = {
+      # enable = true;
+      # touchpad = {
+      # sendEventsMode = "enabled";
+      # scrollMethod = "twofinger";
+      # naturalScrolling = true;
+      # tapping = true;
+      # };
+      # };
     };
 
     pipewire = {
@@ -124,7 +135,7 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    logind.lidSwitch = "suspend";
+    logind.lidSwitch = "hybrid-sleep";
     logind.extraConfig = ''
       # don’t shutdown when power button is short-pressed
       HandlePowerKey=suspend
@@ -151,12 +162,9 @@
     initialPassword = "password";
     isNormalUser = true;
     description = "${vars.name}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [ ];
     shell = pkgs.${vars.shell};
-    openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-    ];
   };
 
   environment = {
@@ -166,6 +174,8 @@
       gnupg
       hyprpaper
       killall
+      # libinput
+      # libinput-gestures
       neovim
       python3
       wget
@@ -180,7 +190,10 @@
   };
 
   programs = {
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
     nm-applet.enable = true;
 
     thunar = {

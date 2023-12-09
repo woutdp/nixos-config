@@ -1,8 +1,17 @@
 { inputs, lib, config, vars, pkgs, ... }:
 
 {
-  imports =
-    [ ./git ./gtk ./hyprland ./neovim ./shell ./waybar ./zellij ./swappy ];
+  imports = [
+    ./git
+    ./gtk
+    ./hyprland
+    ./neovim
+    ./shell
+    ./waybar
+    ./zellij
+    ./swappy
+    ./fusuma
+  ];
 
   nixpkgs = {
     config = {
@@ -38,6 +47,8 @@
       vlc
       wl-clipboard
       wofi
+      xdotool
+      coreutils-full
 
       # fonts
       cascadia-code
@@ -52,11 +63,10 @@
       sarasa-gothic
       siji
     ];
+    file."code/.keep".text = "";
   };
 
   fonts.fontconfig.enable = true;
-
-  home.file."code/.keep".text = "";
 
   programs.home-manager.enable = true;
 
