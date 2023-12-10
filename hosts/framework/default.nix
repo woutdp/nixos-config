@@ -135,10 +135,10 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    logind.lidSwitch = "hybrid-sleep";
+    logind.lidSwitch = "hibernate";
     logind.extraConfig = ''
       # don’t shutdown when power button is short-pressed
-      HandlePowerKey=suspend
+      HandlePowerKey=ignore
     '';
     pcscd.enable = true;
     thermald.enable = true;

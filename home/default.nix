@@ -26,8 +26,10 @@
     packages = with pkgs; [
       beeper
       brightnessctl
+      coreutils-full
       eww
       fd
+      firefox
       google-chrome
       gotop
       grim
@@ -48,7 +50,6 @@
       wl-clipboard
       wofi
       xdotool
-      coreutils-full
 
       # fonts
       cascadia-code
