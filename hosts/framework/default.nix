@@ -135,7 +135,7 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    logind.lidSwitch = "hibernate";
+    logind.lidSwitch = "ignore";
     logind.extraConfig = ''
       # don’t shutdown when power button is short-pressed
       HandlePowerKey=ignore
@@ -174,11 +174,13 @@
       gnupg
       hyprpaper
       killall
-      # libinput
-      # libinput-gestures
       neovim
       python3
+      rar
+      unzip
       wget
+      xarchiver
+      zip
     ];
 
     # This will additionally add your inputs to the system's legacy channels

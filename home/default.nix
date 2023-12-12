@@ -37,6 +37,7 @@
       ncdu
       neofetch
       nixfmt
+      ollama
       pavucontrol
       ripgrep
       slurp
@@ -45,7 +46,6 @@
       swappy
       swaylock-effects
       telegram-desktop
-      unzip
       vlc
       wl-clipboard
       wofi
