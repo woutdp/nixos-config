@@ -3,15 +3,15 @@
 {
   imports = [
     ./dunst
+    ./fusuma
     ./git
     ./gtk
     ./hyprland
     ./neovim
     ./shell
+    ./swappy
     ./waybar
     ./zellij
-    ./swappy
-    ./fusuma
   ];
 
   nixpkgs = {
