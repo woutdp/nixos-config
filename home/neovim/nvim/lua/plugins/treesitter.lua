@@ -1,10 +1,14 @@
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "svelte"
+        "svelte",
+        "elixir",
+        "eex",
+        "erlang",
+        "heex",
+        "html"
       },
     },
   },
