@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./direnv
     ./dunst
     ./fusuma
     ./git
