@@ -26,7 +26,7 @@
         location = "$HOME/.nix";
         terminal = "kitty";
         editor = "nvim";
-        shell = "nushell";
+        shell = "fish";
       };
     in {
       nixosConfigurations = {

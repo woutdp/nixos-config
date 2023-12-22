@@ -164,6 +164,7 @@
     description = "${vars.name}";
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [ ];
+    ignoreShellProgramCheck = true;
     shell = pkgs.${vars.shell};
   };
 
