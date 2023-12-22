@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./dunst
     ./git
     ./gtk
     ./hyprland
