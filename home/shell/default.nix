@@ -6,5 +6,6 @@
     TERMINAL = "kitty";
     VISUAL = "nvim";
     EDITOR = "nvim";
+    DIRENV_LOG_FORMAT = "";
   };
 }
