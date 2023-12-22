@@ -29,12 +29,15 @@
       beeper
       brightnessctl
       coreutils-full
+      dbeaver
+      discord
       eww
       fd
       firefox
       google-chrome
       gotop
       grim
+      kooha
       lazygit
       ncdu
       neofetch
@@ -42,6 +45,7 @@
       ollama
       pavucontrol
       ripgrep
+      slack
       slurp
       spotify
       stylua
