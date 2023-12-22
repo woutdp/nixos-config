@@ -33,7 +33,10 @@
       help = { autocorrect = 1; };
       rebase = { autosquash = true; };
       pull = { rebase = true; };
-      push = { default = "simple"; };
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+      };
       commit = {
         verbose = true;
         gpgSign = true;
