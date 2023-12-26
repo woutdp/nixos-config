@@ -106,6 +106,7 @@
     shellAliases = {
       dev = "nix develop -c ${vars.shell}";
       rebuild = "sudo nixos-rebuild switch --flake /home/wout/.nix ";
+      wifi = "nmcli dev wifi show-password";
     };
   };
 
