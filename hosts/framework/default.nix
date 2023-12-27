@@ -149,15 +149,22 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    logind.lidSwitch = "ignore";
-    logind.extraConfig = ''
-      # don’t shutdown when power button is short-pressed
-      HandlePowerKey=ignore
-    '';
+    logind = {
+      lidSwitch = "suspend-then-hibernate";
+      extraConfig = ''
+        # don’t shutdown when power button is short-pressed
+        HandlePowerKey=ignore
+        HandlePowerKey=suspend-then-hibernate
+        IdleAction=suspend-then-hibernate
+        IdleActionSec=10m
+      '';
+    };
     pcscd.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
   };
+
+  systemd.sleep.extraConfig = "HibernateDelaySec=90m";
 
   security = {
     rtkit.enable = true;
