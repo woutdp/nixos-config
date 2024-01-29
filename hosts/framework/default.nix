@@ -78,13 +78,17 @@
 
   services = {
     xserver = {
+      enable = true;
       layout = "gb";
       xkbVariant = "";
-      displayManager.gdm.enable = true;
-      displayManager.defaultSession = "Hyprland";
       autoRepeatDelay = 250;
       autoRepeatInterval = 30;
       exportConfiguration = true;
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "where_is_my_sddm_theme";
+      };
       #libinput = {
       # enable = true;
       # touchpad = {
@@ -103,16 +107,16 @@
       pulse.enable = true;
     };
 
-    greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          command = "${pkgs.hyprland}/bin/Hyprland";
-          user = "${vars.user}";
-        };
-        default_session = initial_session;
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = rec {
+    #     initial_session = {
+    #       command = "${pkgs.hyprland}/bin/Hyprland";
+    #       user = "${vars.user}";
+    #     };
+    #     default_session = initial_session;
+    #   };
+    # };
 
     # Caps lock -> ctrl
     interception-tools = {
@@ -211,6 +215,9 @@
       name = "nix/path/${name}";
       value.source = value.flake;
     }) config.nix.registry;
+
+    # VSCode
+    sessionVariables.NIXOS_OZONE_WL = "1";
   };
 
   programs = {
@@ -241,7 +248,9 @@
   # OpenCL / Vulkan
   hardware = {
     opengl = {
+      enable = true;
       extraPackages = [ pkgs.rocm-opencl-icd pkgs.amdvlk ];
+      driSupport = true;
       driSupport32Bit = true;
     };
     bluetooth = {

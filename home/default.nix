@@ -4,10 +4,10 @@
   imports = [
     ./direnv
     ./dunst
-    ./fusuma
     ./git
     ./gtk
     ./hyprland
+    ./lock
     ./neovim
     ./shell
     ./swappy
@@ -37,6 +37,7 @@
       google-chrome
       gotop
       grim
+      httpie
       kooha
       lazygit
       ncdu
@@ -53,6 +54,7 @@
       swaylock-effects
       telegram-desktop
       vlc
+      vscode.fhs
       wl-clipboard
       wofi
       xdotool
@@ -76,6 +78,9 @@
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
+
+  # vscode
+  programs.vscode.userSettings."window.titleBarStyle" = "custom";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

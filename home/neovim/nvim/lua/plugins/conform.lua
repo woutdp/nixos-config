@@ -4,8 +4,8 @@ return {
     opts = {
       formatters_by_ft = {
         nix = { "nixfmt" },
-        -- lua = { "stylua" },
         -- elixir = { "mix format" },
+        -- lua = { "stylua" },
         -- fish = { "fish_indent" },
         -- sh = { "shfmt" },
       },
