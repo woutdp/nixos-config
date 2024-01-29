@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.swaylock = {
     enable = true;
@@ -7,7 +9,7 @@
       ignore-empty-password = true;
       disable-caps-lock-text = true;
       # font = "MonaspiceAr Nerd Font";
-      grace = 300;
+      grace = 3;
 
       clock = true;
       timestr = "%R";

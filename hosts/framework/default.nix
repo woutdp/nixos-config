@@ -49,6 +49,8 @@
       "usbcore.autosuspend=-1"
       "nvme.noacpi=1"
       "amd_pstate=active"
+      "mem_sleep_default=deep"
+      "amdgpu.sg_display=0"
     ];
     blacklistedKernelModules = [ "hid_logitech_hidpp" ];
   };
@@ -154,12 +156,10 @@
     gvfs.enable = true;
     tumbler.enable = true;
     logind = {
-      lidSwitch = "suspend-then-hibernate";
+      lidSwitch = "hibernate";
       extraConfig = ''
-        # don’t shutdown when power button is short-pressed
-        HandlePowerKey=ignore
-        HandlePowerKey=suspend-then-hibernate
-        IdleAction=suspend-then-hibernate
+        HandlePowerKey=hibernate
+        IdleAction=hibernate
         IdleActionSec=10m
       '';
     };
@@ -174,6 +174,7 @@
     rtkit.enable = true;
     polkit.enable = true;
     sudo.wheelNeedsPassword = false;
+    pam.services.swaylock = { };
   };
 
   # auto-tune on start
