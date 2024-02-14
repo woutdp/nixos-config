@@ -42,6 +42,7 @@
       lazygit
       ncdu
       neofetch
+      neovide
       nixfmt
       ollama
       pavucontrol
