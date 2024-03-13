@@ -60,9 +60,6 @@
     networkmanager.enable = true;
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Vancouver";
-
   i18n = {
     defaultLocale = "en_CA.UTF-8";
     extraLocaleSettings = {
@@ -158,7 +155,7 @@
     logind = {
       lidSwitch = "hibernate";
       extraConfig = ''
-        HandlePowerKey=hibernate
+        HandlePowerKey=ignore
         IdleAction=hibernate
         IdleActionSec=10m
       '';
@@ -166,6 +163,7 @@
     pcscd.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
+    automatic-timezoned.enable = true;
   };
 
   systemd.sleep.extraConfig = "HibernateDelaySec=90m";

@@ -37,8 +37,10 @@
       google-chrome
       gotop
       grim
+      haskellPackages.git-mediate
       httpie
       kooha
+      lapce
       lazygit
       ncdu
       neofetch
