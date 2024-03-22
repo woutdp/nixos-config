@@ -41,9 +41,17 @@
         verbose = true;
         gpgSign = true;
       };
+      diff = {
+        tool = "difftastic";
+        external = "difft";
+      };
+      difftool = {
+        prompt = true;
+        difftastic = { cmd = ''difft "$LOCAL" "$REMOTE"''; };
+      };
+      pager = { difftool = true; };
       merge = { conflictstyle = "diff3"; };
       init = { defaultBranch = "master"; };
     };
   };
 }
-

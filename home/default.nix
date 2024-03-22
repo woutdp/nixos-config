@@ -5,6 +5,7 @@
     ./direnv
     ./dunst
     ./git
+    ./git/lazygit
     ./gtk
     ./hyprland
     ./lock
@@ -30,6 +31,7 @@
       brightnessctl
       coreutils-full
       dbeaver
+      difftastic
       discord
       eww
       fd
@@ -42,9 +44,11 @@
       kooha
       lapce
       lazygit
+      mitmproxy
       ncdu
       neofetch
       neovide
+      ngrok
       nixfmt
       ollama
       pavucontrol
