@@ -58,6 +58,9 @@
   networking = {
     hostName = "framework";
     networkmanager.enable = true;
+    extraHosts = ''
+      127.0.0.1 local.app.castmagic.io
+    '';
   };
 
   i18n = {
