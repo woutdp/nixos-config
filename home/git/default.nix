@@ -1,6 +1,8 @@
 { vars, ... }:
 
 {
+  imports = [ ./lazygit.nix ];
+
   programs.git = {
     enable = true;
     userName = "${vars.name}";

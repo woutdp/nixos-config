@@ -5,7 +5,6 @@
     ./direnv
     ./dunst
     ./git
-    ./git/lazygit
     ./gtk
     ./hyprland
     ./lock
@@ -28,6 +27,7 @@
     homeDirectory = "/home/${vars.user}";
     packages = with pkgs; [
       beeper
+      bluez
       brightnessctl
       coreutils-full
       dbeaver
@@ -43,7 +43,6 @@
       httpie
       kooha
       lapce
-      lazygit
       mitmproxy
       ncdu
       neofetch
@@ -65,6 +64,7 @@
       wl-clipboard
       wofi
       xdotool
+      zoom-us
 
       # fonts
       cascadia-code
@@ -80,6 +80,8 @@
       siji
     ];
     file."code/.keep".text = "";
+    file.".icons/default".source =
+      "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
   };
 
   fonts.fontconfig.enable = true;
