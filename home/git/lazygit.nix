@@ -6,7 +6,6 @@
     settings = {
       git.paging = {
         colorArg = "always";
-        useConfig = true;
         externalDiffCommand = "difft --color=always";
       };
     };

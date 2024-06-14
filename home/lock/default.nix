@@ -1,15 +1,19 @@
 { pkgs, ... }:
 
-{
+let
+  default = "#d4be98";
+  transparent = "#00000000";
+in {
   programs.swaylock = {
     enable = true;
 
     package = pkgs.swaylock-effects;
     settings = {
-      ignore-empty-password = true;
+      ignore-empty-password = false;
       disable-caps-lock-text = true;
-      # font = "MonaspiceAr Nerd Font";
+      submit-on-touch = true;
       grace = 3;
+      grace-no-mouse = true;
 
       clock = true;
       timestr = "%R";
@@ -17,46 +21,49 @@
 
       fade-in = "0.2";
 
-      effect-blur = "10x2";
-      effect-scale = "0.1";
-
       indicator = true;
-      indicator-radius = 240;
-      indicator-thickness = 20;
+      indicator-radius = 200;
+      indicator-thickness = 14;
       indicator-caps-lock = true;
+      indicator-idle-visible = true;
 
-      key-hl-color = "#8aadf4";
-      bs-hl-color = "#ed8796";
-      caps-lock-key-hl-color = "#f5a97f";
-      caps-lock-bs-hl-color = "#ed8796";
+      show-keyboard-layout = false;
+      layout-bg-color = transparent;
+      layout-text-color = "#d4be98";
 
-      separator-color = "#181926";
+      key-hl-color = "#a9b665cc";
+      bs-hl-color = "#7daea3cc";
+      caps-lock-key-hl-color = "#7daea3cc";
+      caps-lock-bs-hl-color = "#d3869bcc";
 
-      inside-color = "#24273a";
-      inside-clear-color = "#24273a";
-      inside-caps-lock-color = "#24273a";
-      inside-ver-color = "#24273a";
-      inside-wrong-color = "#24273a";
+      separator-color = transparent;
 
-      ring-color = "#1e2030";
-      ring-clear-color = "#8aadf4";
-      ring-caps-lock-color = "231f20D9";
-      ring-ver-color = "#1e2030";
-      ring-wrong-color = "#ed8796";
+      inside-color = "#32302f66";
+      inside-clear-color = "#89b48266";
+      inside-caps-lock-color = "#e78a4e66";
+      inside-ver-color = "#7daea366";
+      inside-wrong-color = "#ea696266";
 
-      line-color = "#8aadf4";
-      line-clear-color = "#8aadf4";
-      line-caps-lock-color = "#f5a97f";
-      line-ver-color = "#181926";
-      line-wrong-color = "#ed8796";
+      ring-color = "#e78a4ecc";
+      ring-clear-color = "#89b482cc";
+      ring-caps-lock-color = "#e78a4ecc";
+      ring-ver-color = "#7daea3cc";
+      ring-wrong-color = "#ea6962cc";
 
-      text-color = "#8aadf4";
-      text-clear-color = "#24273a";
-      text-caps-lock-color = "#f5a97f";
-      text-ver-color = "#24273a";
-      text-wrong-color = "#24273a";
+      line-color = transparent;
+      line-clear-color = default;
+      line-caps-lock-color = default;
+      line-ver-color = default;
+      line-wrong-color = default;
 
-      debug = true;
+      text-color = default;
+      text-clear-color = default;
+      text-caps-lock-color = default;
+      text-ver-color = default;
+      text-wrong-color = default;
+
+      screenshot = true;
+      effect-pixelate = "48";
     };
   };
 }

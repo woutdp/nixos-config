@@ -13,6 +13,7 @@
     ./swappy
     ./waybar
     ./zellij
+    ./wofi
   ];
 
   nixpkgs = {
@@ -30,7 +31,7 @@
       bluez
       brightnessctl
       coreutils-full
-      dbeaver
+      dbeaver-bin
       difftastic
       discord
       eww
@@ -44,11 +45,12 @@
       kooha
       lapce
       mitmproxy
+      mullvad-vpn
       ncdu
       neofetch
       neovide
       ngrok
-      nixfmt
+      nixfmt-classic
       ollama
       pavucontrol
       ripgrep
@@ -62,7 +64,6 @@
       vlc
       vscode.fhs
       wl-clipboard
-      wofi
       xdotool
       zoom-us
 

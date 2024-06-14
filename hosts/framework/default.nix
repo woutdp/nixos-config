@@ -6,6 +6,11 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs vars; };
     users = { ${vars.user} = import ../../home; };
@@ -81,25 +86,17 @@
   services = {
     xserver = {
       enable = true;
-      layout = "gb";
-      xkbVariant = "";
+      xkb.layout = "gb";
+      xkb.variant = "";
       autoRepeatDelay = 250;
       autoRepeatInterval = 30;
       exportConfiguration = true;
-      displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-        theme = "where_is_my_sddm_theme";
-      };
-      #libinput = {
-      # enable = true;
-      # touchpad = {
-      # sendEventsMode = "enabled";
-      # scrollMethod = "twofinger";
-      # naturalScrolling = true;
-      # tapping = true;
-      # };
-      # };
+    };
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "where_is_my_sddm_theme";
     };
 
     pipewire = {
@@ -108,6 +105,13 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
+    };
+
+    resolved.enable = true;
 
     # greetd = {
     #   enable = true;
@@ -156,20 +160,21 @@
     gvfs.enable = true;
     tumbler.enable = true;
     logind = {
-      lidSwitch = "hibernate";
+      lidSwitch = "suspend-then-hibernate";
       extraConfig = ''
-        HandlePowerKey=ignore
-        IdleAction=hibernate
-        IdleActionSec=10m
+        HandlePowerKey=suspend-then-hibernate
+        IdleAction=suspend-then-hibernate
+        IdleActionSec=2m
       '';
     };
     pcscd.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
     automatic-timezoned.enable = true;
+    flatpak.enable = true;
   };
 
-  systemd.sleep.extraConfig = "HibernateDelaySec=90m";
+  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
   security = {
     rtkit.enable = true;
@@ -242,7 +247,6 @@
 
     gnupg.agent = {
       enable = true;
-      pinentryFlavor = "gnome3";
       enableSSHSupport = true;
     };
   };

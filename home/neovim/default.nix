@@ -1,4 +1,7 @@
-{
+{ config, pkgs, lib, ... }:
+
+let destinationDir = "${config.home.homeDirectory}/.config/nvim";
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -10,4 +13,9 @@
     source = ./nvim;
     recursive = true;
   };
+
+  home.activation.changePermissions =
+    lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      chmod -R u+w ${destinationDir}
+    '';
 }

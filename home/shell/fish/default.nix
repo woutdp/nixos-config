@@ -102,6 +102,7 @@
       home = "cd ~";
       ll = "ls -la";
       master = "git checkout master";
+      staging = "git checkout staging";
     };
     shellAliases = {
       dev = "nix develop -c ${vars.shell}";
