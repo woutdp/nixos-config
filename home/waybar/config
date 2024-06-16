@@ -25,6 +25,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        // "custom/clockify",
         "pulseaudio",
         "battery",
         "backlight",
@@ -122,6 +123,11 @@
     "hyprland/workspaces": {
         "all-outputs": true,
         "format": "{icon}"
+    },
+    "custom/clockify": {
+        "format": "!",
+        "tooltip": false,
+        "exec": "~/code/waybar_clockify/_build/dev/rel/waybar_clockify/bin/waybar_clockify start",
     },
     "pulseaudio": {
         "scroll-step": 1,

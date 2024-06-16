@@ -30,11 +30,13 @@
       beeper
       bluez
       brightnessctl
+      chromium
       coreutils-full
       dbeaver-bin
       difftastic
       discord
       eww
+      fastfetch
       fd
       firefox
       google-chrome
@@ -47,8 +49,8 @@
       mitmproxy
       mullvad-vpn
       ncdu
-      neofetch
       neovide
+      netcat-gnu
       ngrok
       nixfmt-classic
       ollama
