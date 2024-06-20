@@ -34,14 +34,14 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  news = {
+  -- news = {
     -- When enabled, NEWS.md will be shown when changed.
     -- This only contains big new features and breaking changes.
-    lazyvim = false,
+    -- lazyvim = false,
     -- Same but for Neovim's news.txt
-    neovim = false,
-  },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+    -- neovim = false,
+  -- },
+  install = { colorscheme = { "tokyonight", "habamax", "gruvbox" } },
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
   performance = {
     rtp = {

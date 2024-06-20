@@ -9,10 +9,10 @@ in {
 
     package = pkgs.swaylock-effects;
     settings = {
-      ignore-empty-password = false;
+      # ignore-empty-password = false;
       disable-caps-lock-text = true;
       submit-on-touch = true;
-      grace = 3;
+      grace = 1;
       grace-no-mouse = true;
 
       clock = true;

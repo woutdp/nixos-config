@@ -159,14 +159,14 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    # logind = {
-    #   lidSwitch = "suspend-then-hibernate";
-    #   extraConfig = ''
-    #     HandlePowerKey=suspend-then-hibernate
-    #     IdleAction=suspend-then-hibernate
-    #     IdleActionSec=2m
-    #   '';
-    # };
+    logind = {
+      lidSwitch = "hibernate";
+      extraConfig = ''
+        HandlePowerKey=ignore
+        IdleAction=hibernate
+        IdleActionSec=2m
+      '';
+    };
     pcscd.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;
@@ -174,7 +174,7 @@
     flatpak.enable = true;
   };
 
-  # systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
   security = {
     rtkit.enable = true;
