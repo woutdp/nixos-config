@@ -14,6 +14,7 @@
     ./waybar
     ./zellij
     ./wofi
+    ./feh
   ];
 
   nixpkgs = {
@@ -64,6 +65,8 @@
       swappy
       swaylock-effects
       telegram-desktop
+      thefuck
+      tlrc
       vlc
       vscode.fhs
       wl-clipboard
