@@ -48,6 +48,10 @@
       set -U ABBR_TIPS_PROMPT "\n💡 \e[1m{{ .abbr }}\e[0m => {{ .cmd }}"
       set -U ABBR_TIPS_ALIAS_WHITELIST # Not set
       set -U ABBR_TIPS_REGEXES '(^(\w+\s+)+(-{1,2})\w+)(\s\S+)' '(^( ?\w+){3}).*' '(^( ?\w+){2}).*' '(^( ?\w+){1}).*'
+
+      if command -q nix-your-shell
+        nix-your-shell fish | source
+      end
     '';
     plugins = with pkgs; [
       {

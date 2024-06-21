@@ -52,6 +52,7 @@
       neovide
       netcat-gnu
       ngrok
+      nix-your-shell
       nixfmt-classic
       ollama
       pavucontrol
