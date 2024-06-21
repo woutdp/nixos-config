@@ -159,14 +159,14 @@
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
-    logind = {
-      lidSwitch = "hibernate";
-      extraConfig = ''
-        HandlePowerKey=ignore
-        IdleAction=hibernate
-        IdleActionSec=2m
-      '';
-    };
+    # logind = {
+    #   # lidSwitch = "hibernate";
+    #   extraConfig = ''
+    #     HandlePowerKey=ignore
+    #     IdleAction=hibernate
+    #     IdleActionSec=2m
+    #   '';
+    # };
     pcscd.enable = true;
     thermald.enable = true;
     auto-cpufreq.enable = true;

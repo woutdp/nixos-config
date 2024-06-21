@@ -4,12 +4,12 @@
     theme = "Gruvbox Dark";
     settings = {
       font_family = "Cascadia Code";
-      font_size = "12";
+      font_size = "10.8";
       confirm_os_window_close = 0;
       enable_audio_bell = "no";
       resize_debounce_time = "0";
       kitty_mod = "ctrl+alt";
-      adjust_line_height = -1;
+      adjust_line_height = 0;
       adjust_column_width = 0;
       placement_strategy = "top-left";
 

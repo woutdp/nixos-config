@@ -17,7 +17,7 @@ in {
 
       clock = true;
       timestr = "%R";
-      datestr = "%a, %e of %B";
+      datestr = "%a, %Y %B %e";
 
       fade-in = "0.2";
 
@@ -29,7 +29,7 @@ in {
 
       show-keyboard-layout = false;
       layout-bg-color = transparent;
-      layout-text-color = "#d4be98";
+      layout-text-color = default;
 
       key-hl-color = "#a9b665cc";
       bs-hl-color = "#7daea3cc";
@@ -63,7 +63,7 @@ in {
       text-wrong-color = default;
 
       screenshot = true;
-      effect-pixelate = "48";
+      effect-pixelate = "24";
     };
   };
 }

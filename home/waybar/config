@@ -8,9 +8,12 @@
     // -------------------------------------------------------------------------
     "ipc": true,
     "position": "bottom",
-    "layer": "top",
-    "height": 30,
-    "mode": "dock",
+    // "layer": "top",
+    // "height": 15,
+    // "mode": "dock",
+    // "mode": "overlay",
+    "mode": "hide",
+    "start_hidden": true,
     "modules-left": [
         "hyprland/hide",
         "hyprland/mode",
