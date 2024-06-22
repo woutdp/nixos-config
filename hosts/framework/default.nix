@@ -53,9 +53,11 @@
       "btusb.enable_autosuspend=0"
       "usbcore.autosuspend=-1"
       "nvme.noacpi=1"
-      "amd_pstate=active"
+      "amd_pstate=guided"
       "mem_sleep_default=deep"
+      "amdgpu"
       "amdgpu.sg_display=0"
+      "amdgpu.abmlevel=3"
     ];
     blacklistedKernelModules = [ "hid_logitech_hidpp" ];
   };
@@ -152,13 +154,29 @@
 
     fwupd.enable = true;
     blueman.enable = true;
-    upower.enable = true;
-    upower.criticalPowerAction = "Hibernate";
+    upower = {
+      enable = true;
+      criticalPowerAction = "Hibernate";
+      ignoreLid = true;
+    };
+    power-profiles-daemon.enable = true;
     fprintd.enable = true;
     # from nixos-hardware/common/pc/ssd
     fstrim.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
+    logind = {
+      lidSwitch = "ignore";
+      lidSwitchDocked = "ignore";
+      powerKey = "ignore";
+      powerKeyLongPress = "poweroff";
+    };
+
+    # logind.extraConfig = ''
+    #   HandlePowerKey=ignore
+    #   powerKeyLongPress=shutdown
+    #   lidSwitch=ignore
+    # '';
     # logind = {
     #   # lidSwitch = "hibernate";
     #   extraConfig = ''
@@ -174,7 +192,23 @@
     flatpak.enable = true;
   };
 
-  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+  # systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart =
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
 
   security = {
     rtkit.enable = true;
@@ -194,7 +228,7 @@
     initialPassword = "password";
     isNormalUser = true;
     description = "${vars.name}";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "wireshark" ];
     packages = with pkgs; [ ];
     ignoreShellProgramCheck = true;
     shell = pkgs.${vars.shell};
@@ -205,9 +239,9 @@
       gcc
       git
       gnupg
-      hyprpaper
       killall
       neovim
+      polkit-kde-agent
       python3
       rar
       unzip

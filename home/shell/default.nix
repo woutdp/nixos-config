@@ -1,5 +1,5 @@
 {
-  imports = [ ./fish ./starship.nix ./terminals.nix ];
+  imports = [ ./fish ./starship.nix ./terminals.nix ./thefuck.nix ];
 
   home.sessionVariables = {
     BROWSER = "google-chrome-stable";

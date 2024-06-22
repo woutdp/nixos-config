@@ -86,6 +86,7 @@
 #network,
 #disk,
 #pulseaudio,
+#submap,
 #workspaces,
 #temperature {
 	padding: 0 10px;
@@ -99,6 +100,7 @@
 #mode,
 #memory,
 #temperature,
+#submap,
 #battery {
 	animation-timing-function: ease-out;
 	animation-iteration-count: infinite;
@@ -109,7 +111,9 @@
 #memory.critical,
 #cpu.critical,
 #temperature.critical,
-#battery.critical {
+#battery.critical,
+#submap
+{
 	color: @critical;
 }
 
@@ -117,7 +121,9 @@
 #mode,
 #memory.critical,
 #temperature.critical,
-#battery.critical.discharging {
+#battery.critical.discharging,
+#submap
+{
 	animation-name: blink-critical;
 	animation-duration: 2s;
 }
@@ -261,3 +267,7 @@ tooltip label {
   color: @foreground;
   padding: 0 5px;
 }
+
+/* #submap { */
+  /* text-transform: capitalize; */
+/* } */

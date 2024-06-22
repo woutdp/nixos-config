@@ -28,6 +28,7 @@
     username = "${vars.user}";
     homeDirectory = "/home/${vars.user}";
     packages = with pkgs; [
+      bat
       beeper
       bluez
       brightnessctl
@@ -36,7 +37,6 @@
       dbeaver-bin
       difftastic
       discord
-      eww
       fastfetch
       fd
       firefox
@@ -45,8 +45,10 @@
       grim
       haskellPackages.git-mediate
       httpie
+      hyprlock
+      hyprpaper
+      hyprpicker
       kooha
-      lapce
       mitmproxy
       mullvad-vpn
       ncdu
@@ -57,6 +59,8 @@
       nixfmt-classic
       ollama
       pavucontrol
+      powertop
+      qt5.full
       ripgrep
       slack
       slurp
@@ -65,7 +69,6 @@
       swappy
       swaylock-effects
       telegram-desktop
-      thefuck
       tlrc
       vlc
       vscode.fhs
