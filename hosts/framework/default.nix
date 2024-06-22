@@ -13,7 +13,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs vars; };
-    users = { ${vars.user} = import ../../home; };
+    users.${vars.user} = import ../../home;
   };
 
   nix = {
@@ -34,7 +34,7 @@
       ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
 
-  nixpkgs = { config = { allowUnfree = true; }; };
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -53,9 +53,8 @@
       "btusb.enable_autosuspend=0"
       "usbcore.autosuspend=-1"
       "nvme.noacpi=1"
-      "amd_pstate=guided"
-      "mem_sleep_default=deep"
-      "amdgpu"
+      "amd_pstate=active"
+      "mem_sleep_default=s2idle"
       "amdgpu.sg_display=0"
       "amdgpu.abmlevel=3"
     ];
@@ -115,17 +114,6 @@
 
     resolved.enable = true;
 
-    # greetd = {
-    #   enable = true;
-    #   settings = rec {
-    #     initial_session = {
-    #       command = "${pkgs.hyprland}/bin/Hyprland";
-    #       user = "${vars.user}";
-    #     };
-    #     default_session = initial_session;
-    #   };
-    # };
-
     # Caps lock -> ctrl
     interception-tools = {
       enable = true;
@@ -171,23 +159,9 @@
       powerKey = "ignore";
       powerKeyLongPress = "poweroff";
     };
-
-    # logind.extraConfig = ''
-    #   HandlePowerKey=ignore
-    #   powerKeyLongPress=shutdown
-    #   lidSwitch=ignore
-    # '';
-    # logind = {
-    #   # lidSwitch = "hibernate";
-    #   extraConfig = ''
-    #     HandlePowerKey=ignore
-    #     IdleAction=hibernate
-    #     IdleActionSec=2m
-    #   '';
-    # };
     pcscd.enable = true;
-    thermald.enable = true;
-    auto-cpufreq.enable = true;
+    # thermald.enable = true;
+    # auto-cpufreq.enable = true;
     automatic-timezoned.enable = true;
     flatpak.enable = true;
   };

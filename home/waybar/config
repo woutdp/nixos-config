@@ -58,7 +58,7 @@
     },
     "format": "{icon} {capacity}%",
     "format-discharging": "{icon} {capacity}%/{time}/{power:4.2f}W",
-    "format-charging": "󰂄 {capacity}%",
+    "format-charging": "󰂄 {capacity}%/{time}/{power:4.2f}W",
     "format-time": "{H}:{m}",
     "tooltip-format": "{cycles} cycles - {health}% of the original battery left",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
@@ -152,7 +152,8 @@
   },
   "disk": {
     "interval": 10,
-    "format": "{free}"
+    "format": "{specific_free:0.0f} GB",
+	  "unit": "GiB"
   },
   "backlight": {
     "device": "intel_backlight",
