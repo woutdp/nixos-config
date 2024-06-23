@@ -49,6 +49,8 @@
       set -U ABBR_TIPS_ALIAS_WHITELIST # Not set
       set -U ABBR_TIPS_REGEXES '(^(\w+\s+)+(-{1,2})\w+)(\s\S+)' '(^( ?\w+){3}).*' '(^( ?\w+){2}).*' '(^( ?\w+){1}).*'
 
+      set -U NIX_LD $(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker"; in NIX_LD')
+
       if command -q nix-your-shell
         nix-your-shell fish | source
       end
@@ -119,5 +121,8 @@
     };
   };
 
-  home.packages = with pkgs; [ grc fzf ];
+  home.packages = with pkgs; [
+    grc
+    fzf
+  ];
 }

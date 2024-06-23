@@ -1,4 +1,12 @@
-{ inputs, outputs, lib, config, pkgs, vars, ... }:
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  vars,
+  ...
+}:
 
 {
   imports = [
@@ -12,7 +20,9 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs vars; };
+    extraSpecialArgs = {
+      inherit inputs outputs vars;
+    };
     users.${vars.user} = import ../../home;
   };
 
@@ -30,8 +40,9 @@
 
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
+      (lib.filterAttrs (_: lib.isType "flake")) inputs
+    );
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -175,8 +186,7 @@
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart =
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
@@ -202,8 +212,12 @@
     initialPassword = "password";
     isNormalUser = true;
     description = "${vars.name}";
-    extraGroups = [ "networkmanager" "wheel" "input" "wireshark" ];
-    packages = with pkgs; [ ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "wireshark"
+    ];
     ignoreShellProgramCheck = true;
     shell = pkgs.${vars.shell};
   };
@@ -250,7 +264,10 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
     };
 
     steam = {
@@ -263,13 +280,18 @@
       enable = true;
       enableSSHSupport = true;
     };
+
+    nix-ld.enable = true;
   };
 
   # OpenCL / Vulkan
   hardware = {
     opengl = {
       enable = true;
-      extraPackages = [ pkgs.rocm-opencl-icd pkgs.amdvlk ];
+      extraPackages = [
+        pkgs.rocm-opencl-icd
+        pkgs.amdvlk
+      ];
       driSupport = true;
       driSupport32Bit = true;
     };

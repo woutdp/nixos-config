@@ -17,10 +17,22 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # Next LS for elixir
+    next-ls.url = "github:elixir-tools/next-ls";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, hyprland, home-manager
-    , nixos-hardware, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      hyprland,
+      next-ls,
+      home-manager,
+      nixos-hardware,
+      ...
+    }:
     let
       inherit (self) outputs;
       vars = {
@@ -32,23 +44,22 @@
         editor = "nvim";
         shell = "fish";
       };
-    in {
-      nixosConfigurations = {
-
-        framework = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs vars nixpkgs-unstable; };
-          modules = [
-            ./hosts/framework
-            nixos-hardware.nixosModules.framework-13-7040-amd
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup2";
-            }
-          ];
+    in
+    {
+      nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs outputs vars;
         };
-
+        modules = [
+          ./hosts/framework
+          nixos-hardware.nixosModules.framework-13-7040-amd
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup2";
+          }
+        ];
       };
     };
 }

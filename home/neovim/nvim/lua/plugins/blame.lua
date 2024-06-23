@@ -7,7 +7,7 @@ return {
       })
     end,
     keys = {
-      {"<leader>gb", "<cmd>BlameToggle<cr>", desc = "Git Blame"},
+      { "<leader>gb", "<cmd>BlameToggle<cr>", desc = "Git Blame" },
     },
   },
 }

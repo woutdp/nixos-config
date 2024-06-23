@@ -1,36 +1,35 @@
 @keyframes blink-low {
-	70% {
-		color: @foreground;
-	}
+  70% {
+    color: @foreground;
+  }
 
-	to {
-		color: @foreground;
-		background-color: #744E0D;
-	}
+  to {
+    color: @foreground;
+    background-color: #744e0d;
+  }
 }
 
 @keyframes blink-warning {
-	70% {
-		color: @foreground;
-	}
+  70% {
+    color: @foreground;
+  }
 
-	to {
-		color: @foreground;
-		background-color: @warning;
-	}
+  to {
+    color: @foreground;
+    background-color: @warning;
+  }
 }
 
 @keyframes blink-critical {
-	70% {
-		color: @foreground;
-	}
+  70% {
+    color: @foreground;
+  }
 
-	to {
-		color: @foreground;
-		background-color: @critical;
-	}
+  to {
+    color: @foreground;
+    background-color: @critical;
+  }
 }
-
 
 /* -----------------------------------------------------------------------------
  * Styles
@@ -58,19 +57,26 @@
 
 /* Reset all styles */
 * {
-	border: none;
-	border-radius: 0;
-	min-height: 0;
-	margin: 0;
-	padding: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* The whole bar */
 #waybar {
-	background: @background;
-	color: @foreground;
-	font-family: Sarasa Term K, JetBrainsMono Nerd Font, Material Design Icons, unifont, Fira Code, Terminus, Siji;
-	font-size: 12pt;
+  background: @background;
+  color: @foreground;
+  font-family:
+    Sarasa Term K,
+    JetBrainsMono Nerd Font,
+    Material Design Icons,
+    unifont,
+    Fira Code,
+    Terminus,
+    Siji;
+  font-size: 12pt;
   font-weight: bold;
 }
 
@@ -89,7 +95,7 @@
 #submap,
 #workspaces,
 #temperature {
-	padding: 0 10px;
+  padding: 0 10px;
   margin: 5px 5px;
   border-radius: 10em;
   background-color: @backgroundlight;
@@ -102,9 +108,9 @@
 #temperature,
 #submap,
 #battery {
-	animation-timing-function: ease-out;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 /* Each critical module */
@@ -112,9 +118,8 @@
 #cpu.critical,
 #temperature.critical,
 #battery.critical,
-#submap
-{
-	color: @critical;
+#submap {
+  color: @critical;
 }
 
 /* Each critical that should blink */
@@ -122,10 +127,9 @@
 #memory.critical,
 #temperature.critical,
 #battery.critical.discharging,
-#submap
-{
-	animation-name: blink-critical;
-	animation-duration: 2s;
+#submap {
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 /* Each warning */
@@ -134,120 +138,121 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning {
-	color: @warning;
+  color: @warning;
 }
 
 #cpu.low {
-	color: @memory;
+  color: @memory;
 }
 
 /* Each warning that should blink */
 #battery.warning.discharging {
-	animation-name: blink-warning;
-	animation-duration: 3s;
+  animation-name: blink-warning;
+  animation-duration: 3s;
 }
 
 #battery.low.discharging {
-	animation-name: blink-low;
-	animation-duration: 5s;
+  animation-name: blink-low;
+  animation-duration: 5s;
 }
 
 /* And now modules themselves in their respective order */
 
-#mode { /* Shown current Sway mode (resize etc.) */
-	color: @foreground;
-	background: @mode;
+#mode {
+  /* Shown current Sway mode (resize etc.) */
+  color: @foreground;
+  background: @mode;
 }
 
 /* Workspaces stuff */
 #workspaces {
-  background: #2A2A2A;
+  background: #2a2a2a;
 }
 
 #workspaces button {
   padding: 0;
-	color: #D4BE98;
+  color: #d4be98;
   font-size: 16pt;
 }
 
 #workspaces button.persistent {
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 
 #workspaces button.visible {
-	color: #FE8019;
+  color: #fe8019;
 }
 
 #network {
-	color: @network;
+  color: @network;
 }
 
 #disk {
-	color: #FABD2F;
+  color: #fabd2f;
   border-radius: 10em 0 0 10em;
   margin-right: 0;
 }
 
 #memory {
-	color: @memory;
+  color: @memory;
   margin-right: 0;
   margin-left: 0;
   border-radius: 0;
 }
 
 #cpu {
-	color: @cpu;
+  color: @cpu;
   margin-right: 0;
   margin-left: 0;
   border-radius: 0;
 }
 
 #temperature {
-	color: @temp;
+  color: @temp;
   border-radius: 0 10em 10em 0;
   margin-left: 0;
 }
 
 #pulseaudio {
-	color: @sound;
+  color: @sound;
   margin-right: 0;
   border-radius: 10em 0 0 10em;
 }
 
 #pulseaudio.muted {
-	color: #3E3E3E;
+  color: #3e3e3e;
 }
 
 #battery {
-	color: @battery;
+  color: @battery;
   margin-right: 0;
   margin-left: 0;
   border-radius: 0;
 }
 
 #backlight {
-  color: #D3869B;
+  color: #d3869b;
   margin-left: 0;
   border-radius: 0 10em 10em 0;
 }
 
 #clock.date {
-	background: @date;
-	color: @foreground;
+  background: @date;
+  color: @foreground;
   margin-right: 0;
   border-radius: 10em 0 0 10em;
 }
 
 #clock.time {
-	background: @time;
-	color: @background;
+  background: @time;
+  color: @background;
   margin-left: 0;
   border-radius: 0 10em 10em 0;
 }
 
 #custom-spotify {
   color: @backgroundlight;
-  background-color: #1DB954;
+  background-color: #1db954;
 }
 
 #tray {
@@ -269,5 +274,5 @@ tooltip label {
 }
 
 /* #submap { */
-  /* text-transform: capitalize; */
+/* text-transform: capitalize; */
 /* } */

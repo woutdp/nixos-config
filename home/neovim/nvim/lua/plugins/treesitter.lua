@@ -3,14 +3,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "typescript",
-        "javascript",
-        "svelte",
-        "elixir",
+        "css",
         "eex",
+        "elixir",
         "erlang",
         "heex",
-        "html"
+        "html",
+        "javascript",
+        "nix",
+        "python",
+        "svelte",
+        "typescript",
       },
     },
   },

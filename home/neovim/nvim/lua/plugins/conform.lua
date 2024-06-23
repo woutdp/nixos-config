@@ -1,13 +1,20 @@
 return {
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        nix = { "nixfmt" },
+        css = { "biome" },
         elixir = { "mix format" },
+        fish = { "fish_indent" },
+        javascript = { "prettier" },
+        json = { "biome" },
+        jsonc = { "biome" },
         lua = { "stylua" },
-        -- fish = { "fish_indent" },
-        -- sh = { "shfmt" },
+        nix = { "nixfmt" },
+        python = { "black" },
+        sh = { "shfmt" },
+        svelte = { "prettier" },
+        typescript = { "prettier" },
       },
     },
   },

@@ -1,4 +1,9 @@
-{ inputs, lib, config, vars, pkgs, ... }:
+{
+  vars,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -56,16 +61,15 @@
       netcat-gnu
       ngrok
       nix-your-shell
-      nixfmt-classic
       ollama
       pavucontrol
+      playerctl
       powertop
       qt5.full
       ripgrep
       slack
       slurp
       spotify
-      stylua
       swappy
       swaylock-effects
       telegram-desktop
@@ -75,6 +79,7 @@
       wl-clipboard
       xdotool
       zoom-us
+      inputs.next-ls
 
       # fonts
       cascadia-code
@@ -90,8 +95,7 @@
       siji
     ];
     file."code/.keep".text = "";
-    file.".icons/default".source =
-      "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+    file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
   };
 
   fonts.fontconfig.enable = true;

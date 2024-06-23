@@ -1,12 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.dunst = {
     enable = true;
     settings = {
       global = {
         alignment = "center";
         allow_markup = true;
-        browser =
-          "${config.programs.google-chrome.package}/bin/google-chrome-stable -new-tab";
+        browser = "${config.programs.google-chrome.package}/bin/google-chrome-stable -new-tab";
         bounce_freq = 0;
         corner_radius = 5;
         dmenu = "${pkgs.rofi}/bin/rofi -dmenu";

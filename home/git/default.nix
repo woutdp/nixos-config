@@ -27,14 +27,22 @@
       '';
     };
     extraConfig = {
-      color = { ui = "auto"; };
+      color = {
+        ui = "auto";
+      };
       core = {
         editor = "nvim";
         excludesfile = "~/.gitignore_global";
       };
-      help = { autocorrect = 1; };
-      rebase = { autosquash = true; };
-      pull = { rebase = true; };
+      help = {
+        autocorrect = 1;
+      };
+      rebase = {
+        autosquash = true;
+      };
+      pull = {
+        rebase = true;
+      };
       push = {
         default = "simple";
         autoSetupRemote = true;
@@ -49,11 +57,19 @@
       };
       difftool = {
         prompt = true;
-        difftastic = { cmd = ''difft "$LOCAL" "$REMOTE"''; };
+        difftastic = {
+          cmd = ''difft "$LOCAL" "$REMOTE"'';
+        };
       };
-      pager = { difftool = true; };
-      merge = { conflictstyle = "diff3"; };
-      init = { defaultBranch = "master"; };
+      pager = {
+        difftool = true;
+      };
+      merge = {
+        conflictstyle = "diff3";
+      };
+      init = {
+        defaultBranch = "master";
+      };
     };
   };
 }

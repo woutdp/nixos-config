@@ -5,7 +5,9 @@ local Util = require("lazyvim.util")
 
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
-local lazyterm = function() Util.terminal(nil, { cwd = Util.root() }) end
+local lazyterm = function()
+  Util.terminal(nil, { cwd = Util.root() })
+end
 vim.keymap.del("n", "<C-/>")
 vim.keymap.set("n", "<C-Return>", lazyterm, { desc = "Terminal (root dir)" })
 vim.keymap.del("t", "<C-/>")
