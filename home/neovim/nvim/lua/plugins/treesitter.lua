@@ -9,6 +9,7 @@ return {
         "erlang",
         "heex",
         "html",
+        "hyprlang",
         "javascript",
         "nix",
         "python",
