@@ -118,6 +118,7 @@
       staging = "git checkout staging";
     };
     shellAliases = {
+      cat = "bat";
       ls = "eza --icons=always --hyperlink -F";
       l = "ls";
       dev = "nix develop -c ${vars.shell}";
