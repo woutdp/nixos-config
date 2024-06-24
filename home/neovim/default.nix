@@ -15,9 +15,10 @@
       # vimPlugins.elixir-tools-nvim
       lua-language-server
       nil
+      nixd
       nodePackages_latest.svelte-language-server
       pyright
-      pkgs.nodePackages."@tailwindcss/language-server"
+      nodePackages."@tailwindcss/language-server"
 
       # Formatters
       # https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters

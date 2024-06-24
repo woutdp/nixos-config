@@ -110,11 +110,16 @@
       gg = "lazygit";
       gst = "git status";
       home = "cd ~";
-      ll = "ls -la";
+      ls = "ls";
+      lst = "ls -T -L 2";
+      ll = "ls -l";
+      la = "ls -la";
       master = "git checkout master";
       staging = "git checkout staging";
     };
     shellAliases = {
+      ls = "eza --icons=always --hyperlink -F";
+      l = "ls";
       dev = "nix develop -c ${vars.shell}";
       rebuild = "sudo nixos-rebuild switch --flake /home/wout/.nix";
       wifi = "nmcli dev wifi show-password";

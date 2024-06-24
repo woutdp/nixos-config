@@ -26,10 +26,6 @@
     inputs@{
       self,
       nixpkgs,
-      nixpkgs-unstable,
-      hyprland,
-      next-ls,
-      home-manager,
       nixos-hardware,
       ...
     }:
@@ -55,9 +51,11 @@
           ./hosts/framework
           nixos-hardware.nixosModules.framework-13-7040-amd
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup2";
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup2";
+            };
           }
         ];
       };

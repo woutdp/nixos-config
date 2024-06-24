@@ -231,6 +231,8 @@
       neovim
       polkit-kde-agent
       python3
+      qemu
+      quickemu
       rar
       unzip
       wget
@@ -253,6 +255,14 @@
     "x-scheme-handler/http" = "google-chrome.desktop";
     "x-scheme-handler/https" = "google-chrome.desktop";
     "text/html" = "google-chrome.desktop";
+    "application/pdf" = "org.pwmt.zathura.desktop";
+    "image/png" = "feh.desktop";
+    "image/jpg" = "feh.desktop";
+    "image/jpeg" = "feh.desktop";
+    "image/webm" = "feh.desktop";
+    "text/x-log" = "neovide.desktop";
+    "text/plain" = "neovide.desktop";
+    "inode/directory" = "thunar.desktop";
   };
 
   programs = {

@@ -14,7 +14,6 @@
       placement_strategy = "top-left";
 
       cursor_blink_interval = 0;
-      cursor_shape = "block";
       cursor = "#928374";
       cursor_text_color = "background";
 

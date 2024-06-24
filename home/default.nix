@@ -1,9 +1,4 @@
-{
-  vars,
-  pkgs,
-  inputs,
-  ...
-}:
+{ vars, pkgs, ... }:
 
 {
   imports = [
@@ -35,6 +30,7 @@
     packages = with pkgs; [
       bat
       beeper
+      bemenu
       bluez
       brightnessctl
       chromium
@@ -42,12 +38,14 @@
       dbeaver-bin
       difftastic
       discord
+      eza
       fastfetch
       fd
       firefox
       google-chrome
       gotop
       grim
+      groff
       haskellPackages.git-mediate
       httpie
       hyprlock
@@ -78,8 +76,8 @@
       vscode.fhs
       wl-clipboard
       xdotool
+      zathura
       zoom-us
-      inputs.next-ls
 
       # fonts
       cascadia-code
