@@ -116,6 +116,8 @@
       la = "ls -la";
       master = "git checkout master";
       staging = "git checkout staging";
+      v = "vim";
+      nv = "neovide";
     };
     shellAliases = {
       cat = "bat";

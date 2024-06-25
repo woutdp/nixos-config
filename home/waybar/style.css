@@ -38,7 +38,7 @@
 /* Nord */
 /* Gruvbox */
 @define-color foreground #D4BE98;
-@define-color background #202020;
+@define-color background #1D2021;
 @define-color backgroundlight #2A2A2A;
 @define-color mode #a89984;
 @define-color workspaces #458588;
@@ -86,7 +86,7 @@
 #cpu,
 #memory,
 #custom-clockify,
-#custom-spotify,
+#mpris,
 #backlight,
 #mode,
 #network,
@@ -250,7 +250,7 @@
   border-radius: 0 10em 10em 0;
 }
 
-#custom-spotify {
+#mpris {
   color: @backgroundlight;
   background-color: #1db954;
 }

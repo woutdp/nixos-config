@@ -4,17 +4,18 @@
   imports = [
     ./direnv
     ./dunst
+    ./feh
     ./git
     ./gtk
     ./hyprland
     ./lock
     ./neovim
+    ./scripts
     ./shell
     ./swappy
     ./waybar
-    ./zellij
     ./wofi
-    ./feh
+    ./zellij
   ];
 
   nixpkgs = {
@@ -42,6 +43,7 @@
       fastfetch
       fd
       firefox
+      gamemode
       google-chrome
       gotop
       grim
@@ -56,7 +58,7 @@
       mullvad-vpn
       ncdu
       neovide
-      netcat-gnu
+      netcat-openbsd
       ngrok
       nix-your-shell
       ollama

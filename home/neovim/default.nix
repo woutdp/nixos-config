@@ -8,6 +8,9 @@
     viAlias = true;
     vimAlias = true;
     extraPackages = with pkgs; [
+      lua51Packages.lua
+      lua51Packages.luarocks-nix
+
       # Language Servers
       # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       elixir

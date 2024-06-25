@@ -5,6 +5,7 @@ return {
     config = function()
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       require("lspconfig").elixirls.setup({ cmd = { "elixir-ls" } })
+      -- require("lspconfig").nextls.setup({ cmd = { "nextls", "--stdio" } })
       require("lspconfig").lua_ls.setup({})
       require("lspconfig").nil_ls.setup({})
       require("lspconfig").nixd.setup({
