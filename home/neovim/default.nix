@@ -7,9 +7,13 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    extraLuaPackages = ps: [
+      ps.lua
+      ps.luarocks-nix
+      ps.magick
+    ];
     extraPackages = with pkgs; [
-      lua51Packages.lua
-      lua51Packages.luarocks-nix
+      imagemagick
 
       # Language Servers
       # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
