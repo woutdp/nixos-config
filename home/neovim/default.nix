@@ -1,5 +1,6 @@
 # https://github.com/water-sucks/nixed/blob/main/home/profiles/base/nvim/default.nix
 { pkgs, inputs, ... }:
+
 {
   programs.neovim = {
     enable = true;
@@ -17,6 +18,7 @@
 
       # Language Servers
       # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+      erlang_26
       elixir
       elixir_ls
       # inputs.next-ls
@@ -31,7 +33,6 @@
       # Formatters
       # https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters
       black
-      elixir
       nixfmt-rfc-style
       nodePackages.prettier
       biome

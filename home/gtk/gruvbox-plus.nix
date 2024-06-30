@@ -11,7 +11,7 @@ pkgs.stdenv.mkDerivation {
   dontUnpack = true;
 
   installPhase = ''
-      mkdir -p $out
-      ${pkgs.unzip}/bin/unzip $src -d $out/
+    mkdir -p $out
+    ${pkgs.unzip}/bin/unzip $src -d $out/
   '';
 }

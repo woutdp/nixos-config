@@ -95,6 +95,8 @@
     };
   };
 
+  virtualisation.docker.enable = true;
+
   services = {
     xserver = {
       enable = true;
@@ -105,10 +107,12 @@
       exportConfiguration = true;
     };
 
+    desktopManager.plasma6.enable = true;
+
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
+      theme = "my-theme";
     };
 
     pipewire = {
@@ -216,7 +220,7 @@
       "networkmanager"
       "wheel"
       "input"
-      "wireshark"
+      "docker"
     ];
     ignoreShellProgramCheck = true;
     shell = pkgs.${vars.shell};
@@ -224,6 +228,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      (callPackage ../../derivations/sddm-theme.nix { })
       gcc
       git
       gnupg
@@ -249,6 +254,7 @@
 
     sessionVariables.NIXOS_OZONE_WL = "1"; # VSCode
     sessionVariables.NEOVIDE_MULTIGRID = "1";
+    sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   xdg.mime.defaultApplications = {

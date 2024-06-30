@@ -118,6 +118,8 @@
       staging = "git checkout staging";
       v = "vim";
       nv = "neovide";
+      wip = "git wip";
+      unwip = "git unwip";
     };
     shellAliases = {
       cat = "bat";
