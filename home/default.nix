@@ -63,6 +63,7 @@
       nix-your-shell
       ollama
       pavucontrol
+      pgadmin
       playerctl
       powertop
       qt5.full

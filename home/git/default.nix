@@ -9,6 +9,8 @@
     userEmail = "${vars.email}";
     signing.key = "7BDCD7A5D3E78CD2636ACF1E3DE9371B50FEC46A";
     aliases = {
+      please = "push --force-with-lease --force-if-includes";
+      undo = "reset --soft HEAD^";
       wip = ''
         !git add .; git commit -nm 'WIP: This is a work in progress commit'
       '';
@@ -18,7 +20,7 @@
       slog = ''
         !f() { \
           git log \
-            -''${1-10} \
+            -''${1-20} \
             --graph \
             --abbrev-commit \
             --decorate \
