@@ -4,6 +4,8 @@ return {
     opts = {
       formatters_by_ft = {
         css = { "biome" },
+        html = { "biome" },
+        svg = { "biome" },
         elixir = { "mix format" },
         fish = { "fish_indent" },
         javascript = { "prettier" },

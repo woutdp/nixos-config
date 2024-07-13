@@ -29,6 +29,7 @@
     username = "${vars.user}";
     homeDirectory = "/home/${vars.user}";
     packages = with pkgs; [
+      (callPackage ../derivations/dbvisualizer.nix { })
       bat
       beeper
       bemenu
@@ -53,6 +54,7 @@
       hyprlock
       hyprpaper
       hyprpicker
+      jdk17
       kooha
       mitmproxy
       mullvad-vpn
@@ -80,6 +82,7 @@
       wl-clipboard
       xdotool
       zathura
+      zed-editor
       zoom-us
 
       # fonts
