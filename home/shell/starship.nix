@@ -9,11 +9,12 @@
         error_symbol = "[λ](bold red)";
       };
       elixir.symbol = "🔮 ";
-      package.disabled = true;
       nix_shell = {
         format = "via [$symbol$state]($style) ";
         symbol = "❄️ ";
       };
+      package.disabled = true;
+      gcloud.disabled = true;
     };
   };
 }

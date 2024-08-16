@@ -44,6 +44,8 @@
       fastfetch
       fd
       firefox
+      flyctl
+      google-cloud-sdk
       gamemode
       google-chrome
       gotop
