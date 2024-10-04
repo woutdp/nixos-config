@@ -30,6 +30,9 @@
     homeDirectory = "/home/${vars.user}";
     packages = with pkgs; [
       (callPackage ../derivations/dbvisualizer.nix { })
+      # (callPackage ../derivations/code-cursor.nix { })
+      aichat
+      arianna
       bat
       beeper
       bemenu
@@ -45,9 +48,12 @@
       fd
       firefox
       flyctl
-      google-cloud-sdk
+      foliate
       gamemode
+      git-absorb
+      gnumake
       google-chrome
+      google-cloud-sdk
       gotop
       grim
       groff
@@ -70,6 +76,7 @@
       pgadmin
       playerctl
       powertop
+      protonup-qt
       qt5.full
       ripgrep
       slack
@@ -84,7 +91,7 @@
       wl-clipboard
       xdotool
       zathura
-      zed-editor
+      # zed-editor
       zoom-us
 
       # fonts
