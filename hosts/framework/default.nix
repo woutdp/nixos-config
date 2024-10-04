@@ -252,9 +252,11 @@
       value.source = value.flake;
     }) config.nix.registry;
 
-    sessionVariables.NIXOS_OZONE_WL = "1"; # VSCode
-    sessionVariables.NEOVIDE_MULTIGRID = "1";
-    sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # VSCode
+      NEOVIDE_MULTIGRID = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
   };
 
   xdg.mime.defaultApplications = {
