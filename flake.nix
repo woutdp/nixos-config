@@ -22,7 +22,7 @@
     next-ls.url = "github:elixir-tools/next-ls";
 
     # Neovim Bleeding Edge!
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay/7b5ca2486bba58cac80b9229209239740b67cf90";
   };
 
   outputs =
