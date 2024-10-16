@@ -38,6 +38,7 @@
       bemenu
       bluez
       brightnessctl
+      btop
       chromium
       coreutils-full
       dbeaver-bin

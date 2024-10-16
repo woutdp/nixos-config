@@ -4,7 +4,7 @@
     theme = "Gruvbox Dark";
     settings = {
       font_family = "Cascadia Code";
-      font_size = "11.2";
+      font_size = "10.7";
       confirm_os_window_close = 0;
       enable_audio_bell = "no";
       resize_debounce_time = "0";

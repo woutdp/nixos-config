@@ -256,6 +256,7 @@
       NIXOS_OZONE_WL = "1"; # VSCode
       NEOVIDE_MULTIGRID = "1";
       WLR_NO_HARDWARE_CURSORS = "1";
+      STEAM_FORCE_DESKTOPUI_SCALING = "1.25";
     };
   };
 
